@@ -8,26 +8,18 @@
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
 
-  // let canvas = document.querySelector('#draw');
-  // let canvasCtx = canvas.getContext('2d');
-
-  // //size them up to take over the screen dimensions
-  // canvas.width = window.innerWidth;
-  // canvas.height = window.innerHeight;
-
-  // //context variables
-  // canvasCtx.strokeStyle = '#BADA55';
-  // canvasCtx.linejoin = 'round';
-  // canvasCtx.linecap = 'round';
 
   const canvas = document.querySelector('#draw');
   const ctx = canvas.getContext('2d');
+
+  // //size them up to take over the screen dimensions
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  // //context variables
   ctx.strokeStyle = '#BADA55';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
-
 
 
   let isDrawing = false;
@@ -39,6 +31,7 @@
   }
 
   canvas.addEventListener('mousemove', drawing);
+
 
 
 </script>
