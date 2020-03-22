@@ -29,6 +29,8 @@
 
   //change the color 🏳️‍🌈
   let hue = 0;
+  //use to increase the width
+  let direction = true;
 
   function drawing(e){
     if(!isDrawing){
@@ -50,7 +52,23 @@
     [lastX, lastY ] = [e.offsetX, e.offsetY];
     //increase the hue 🌈
     hue++
-  }
+
+    if(hue >= 360){
+      hue = 0;
+    }
+
+    //increase the linewidth
+    if(ctx.lineWidth >= 50 || ctx.lineWidth <= 5){
+      direction = !direction;
+    }
+
+    if(direction){
+      ctx.lineWidth++;
+    } else{
+      ctx.lineWidth--;
+    }
+
+;  }
 
 
   canvas.addEventListener('mousedown',(e) => {
