@@ -27,10 +27,19 @@
   let lastY= 0;
 
   function drawing(e){
+    if(!isDrawing){
+      return;
+    }
+
     console.log(e);
+
   }
 
+
   canvas.addEventListener('mousemove', drawing);
+  canvas.addEventListener('mousedown', () => isDrawing = true);
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
 
 
 
