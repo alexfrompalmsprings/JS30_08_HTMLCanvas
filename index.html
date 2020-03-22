@@ -27,12 +27,18 @@
   let lastX = 0;
   let lastY= 0;
 
+  //change the color 🏳️‍🌈
+  let hue = 0;
+
   function drawing(e){
     if(!isDrawing){
       return;
     }
     //things only run when the mouse is down
     console.log(e);
+
+    //allow us to use 🏳️‍🌈
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
 
     ctx.beginPath();
     // the starting point of the drawing
@@ -42,6 +48,8 @@
     ctx.stroke();
 
     [lastX, lastY ] = [e.offsetX, e.offsetY];
+    //increase the hue 🌈
+    hue++
   }
 
 
