@@ -21,6 +21,7 @@
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
   ctx.lineWidth = 8;
+  ctx.globalCompositeOperation = 'xor';
 
 
   let isDrawing = false;
@@ -58,7 +59,7 @@
     }
 
     //increase the linewidth
-    if(ctx.lineWidth >= 50 || ctx.lineWidth <= 5){
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 5){
       direction = !direction;
     }
 
