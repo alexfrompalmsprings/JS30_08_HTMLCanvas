@@ -20,6 +20,7 @@
   ctx.strokeStyle = '#BADA55';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
+  ctx.lineWidth = 8;
 
 
   let isDrawing = false;
@@ -30,14 +31,26 @@
     if(!isDrawing){
       return;
     }
-
+    //things only run when the mouse is down
     console.log(e);
 
+    ctx.beginPath();
+    // the starting point of the drawing
+    ctx.moveTo(lastX, lastY);
+    //where are we going in the page
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+
+    [lastX, lastY ] = [e.offsetX, e.offsetY];
   }
 
 
-  canvas.addEventListener('mousemove', drawing);
-  canvas.addEventListener('mousedown', () => isDrawing = true);
+  canvas.addEventListener('mousedown',(e) => {
+    isDrawing = true;
+    [lastX, lastY ] = [e.offsetX, e.offsetY];
+  });
+
+  canvas.addEventListener('mousemove',drawing);
   canvas.addEventListener('mouseup', () => isDrawing = false);
   canvas.addEventListener('mouseout', () => isDrawing = false);
 
